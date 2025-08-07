@@ -1,4 +1,5 @@
 import WordController from "./wordController.js";
+import AuthController from "./authController.js";
 
 
 class IndexController {
@@ -7,4 +8,4 @@ class IndexController {
     }
 }
 
-export { IndexController, WordController };
+export { IndexController, WordController, AuthController };
