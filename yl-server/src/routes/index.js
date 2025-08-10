@@ -8,9 +8,11 @@ const authController = new AuthController(); // Assuming you have an AuthControl
 
 function setRoutes(app) {
     router.get('/', indexController.getIndex.bind(indexController));
-    router.get('/word/:word', wordController.getMeaning.bind(wordController)); 
-    router.post('/auth/login', authController.login.bind(authController));
-    router.post('/auth/register', authController.register.bind(authController));
+    router.get('/search/:word', wordController.getMeaning.bind(wordController)); 
+    router.post('/auth/signin', authController.login.bind(authController));
+    router.post('/auth/signup', authController.register.bind(authController));
+    router.post('/auth/refresh-token', authController.silentSignIn.bind(authController)); 
+    router.post('/auth/logout', authController.logout.bind(authController)); 
     app.use('/', router);
 }
 export default setRoutes;

@@ -7,5 +7,12 @@ if (!supabaseKey) {
     throw new Error('Missing Supabase key');
 }
 const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-export default supabase;
+if (!supabaseServiceRoleKey) {
+    throw new Error('Missing Supabase service role key');
+}
+const supabaseService = createClient(supabaseUrl, supabaseServiceRoleKey);
+
+
+export { supabase, supabaseService };
