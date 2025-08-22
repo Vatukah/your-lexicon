@@ -1,4 +1,4 @@
-import { Search } from "@mui/icons-material";
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 export const API_ENDPOINTS = {
@@ -21,7 +21,7 @@ export const fetchApi = async (endpoint, options = {}) => {
     });
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error);
+      throw new Error(error?.message || 'Unknown error');
     }
     return await response.json();
   } catch (error) {

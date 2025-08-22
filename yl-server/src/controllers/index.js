@@ -1,5 +1,6 @@
 import WordController from "./wordController.js";
 import AuthController from "./authController.js";
+import RedisController from "./redisController.js";
 
 
 class IndexController {
@@ -8,4 +9,4 @@ class IndexController {
     }
 }
 
-export { IndexController, WordController, AuthController };
+export { IndexController, WordController, AuthController, RedisController };

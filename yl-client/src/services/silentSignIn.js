@@ -9,7 +9,7 @@ export default async function silentSignIn() {
     }).then((res) => {
          
             if (res.user) {
-                user = res.user;
+                ({user }= res);
             } else {
                 console.error("No user found in silent sign-in response");
             }

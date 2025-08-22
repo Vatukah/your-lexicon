@@ -1,0 +1,10 @@
+POST http://localhost:3000/redis/publish
+Content-Type: application/json
+
+{
+    "channel": "news",
+    "message": {
+        "word": "breaking news",
+        "definition": "flood in city center."
+    }
+}

@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* ========== BASE THEME ========== */
+@theme {
+  /* Accent colors */
+  --color-accent: #81c784;         /* green-300 */
+  --color-accent-muted: #a5d6a7;   /* green-200 */
+
+  /* Backgrounds */
+  --color-bg: #fafafa;             /* light background */
+  --color-bg-muted: #f5f5f0;       /* light muted bg */
+
+  /* Text */
+  --color-text: #2e2e2e;           /* dark text */
+  --color-text-muted: #4b4b4b;     /* muted dark text */
+}
+
+/* ========== THEMES ========== */
+@layer theme {
+  /* Light theme (explicit, matches defaults) */
+  [data-theme='light'] {
+    --color-accent: #81c784;
+    --color-accent-muted: #a5d6a7;
+    --color-bg: #fafafa;
+    --color-bg-muted: #f5f5f0;
+    --color-text: #2e2e2e;
+    --color-text-muted: #4b4b4b;
+  }
+
+  /* Dark theme overrides */
+  [data-theme='dark'] {
+    --color-accent: #81c784;        /* same accent */
+    --color-accent-muted: #a5d6a7;  /* same accent muted */
+    --color-bg: #2e2e2e;            /* dark background */
+    --color-bg-muted: #4b4b4b;      /* muted dark bg */
+    --color-text: #fafafa;          /* light text */
+    --color-text-muted: #f5f5f0;    /* muted light text */
+  }
+}
+/* ========== ROOT STYLES ========== */
+:root{
+    /* --- component --- */
+    --navbar-height: 64px;
+
+    /* --- Page level spacing --- */
+  --space-page-padding: 2rem;       /* Outer padding for full page */
+  --space-section-gap: 4rem;        /* Gap between major sections */
+  --space-section-padding: 3rem;    /* Padding inside a section */
+
+  /* --- Container / Card level --- */
+  --space-container-padding: 2rem;  /* For main container wrappers */
+  --space-card-padding: 1.5rem;     /* For cards or panels */
+  --space-card-gap: 1rem;           /* Gap between items in a card */
+
+  /* --- Element level --- */
+  --space-element-gap: 0.75rem;     /* Default gap between small UI elements */
+  --space-form-gap: 1rem;           /* Gap between form fields */
+  --space-button-padding-x: 1rem;   /* Button horizontal padding */
+  --space-button-padding-y: 0.5rem; /* Button vertical padding */
+
+  /* --- Micro spacing (fine tuning) --- */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+}

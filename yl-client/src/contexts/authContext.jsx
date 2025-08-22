@@ -1,10 +1,12 @@
-import { useContext,createContext,useState,useEffect, use } from "react";
+import { useContext,createContext,useState,useEffect,} from "react";
 import silentSignIn from "../services/silentSignIn";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [channel, setChannel] = useState('word_updates');
+  const [messages, setMessages] = useState({});
 
   useEffect(() => {
     silentSignIn().then((user) => {
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser ,channel, setChannel, messages, setMessages }}>
       {children}
     </AuthContext.Provider>
   );

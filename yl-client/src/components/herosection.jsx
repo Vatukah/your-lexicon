@@ -21,11 +21,11 @@ export default function HeroSection() {
   }, [words.length]);
 
   return (
-    <section className="hero-section min-h-3/4 bg-accent text-text p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <section className="hero-section   text-text p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div >
         <div className="flex items-center justify-start ">
 <h1 className="text-4xl font-bold  text-start">Are you a </h1>
-        <div className="h-[60px] overflow-hidden  px-2 text-white italic">
+        <div className="h-[60px] overflow-hidden  px-2 text-accent italic">
           <span
             className="text-4xl  flex flex-col transition-transform duration-500"
             style={{
@@ -52,8 +52,11 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div>
+      <div className="w-full h-full p-6">
         {/* Additional content can be added here, such as images or links */}
+        <div className="bg-bg-muted  rounded-2xl w-full h-full flex flex-col items-center justify-center text-2xl font-bold">
+          <p>WORD OF THE DAY</p>
+        </div>
       </div>
     </section>
   );
