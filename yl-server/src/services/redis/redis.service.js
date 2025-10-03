@@ -14,5 +14,6 @@ export const setWordInRedis = async (word, data) => {
 // increment the lookup count for a word in sorted set
 export const incrementLookupCount = async (word) => {
     const redisClient = getRedis();
-  await redisClient.zincrby(`word_lookups`, 1, word);
+   
+  await redisClient.zIncrBy(`word_lookups`, 1, word);
 };

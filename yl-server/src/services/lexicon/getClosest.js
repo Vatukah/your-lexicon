@@ -11,9 +11,8 @@ export function getClosestSynset(results) {
   }
 
   let closest = {};
-  const posSet = new Set();
 
-  results.forEach((result, i) => {
+  results.forEach((result) => {
     const posAbbreviation = getPOSAbbreviation(result.pos);
 
     // Deep clone result before assignment
@@ -28,7 +27,7 @@ export function getClosestSynset(results) {
       closest[posAbbreviation] = clonedResult;
     }
   });
-  return { closest, posSet };
+  return closest;
 }
 
 const getPOSAbbreviation = (pos) => {

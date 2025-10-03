@@ -129,7 +129,6 @@ class AuthController {
      console.log("Refreshing token:", refreshToken);
     const { session, error: refreshError } = await this.refresh_token(refreshToken);
 
-    console.log("Silent sign-in with refresh token:", session, refreshError);
     if (refreshError || !session) {
       throw new AuthenticationError(refreshError?.message || "Failed to refresh token", 401);
     }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { API_ENDPOINTS, fetchApi } from "../../config/api";
+import { EyeIcon,EyeSlashIcon } from `@heroicons/react/24/outline`;
 
 // components/Signup.js
 
@@ -83,8 +84,15 @@ export default function Signup() {
   };
 
   return (
-    <div className="w-80">
-      <h2 className="text-xl font-bold mb-4">Sign Up</h2>
+    <div className="w-full mx-auto">
+      <div className=" py-6 px-4">
+
+      <h2 className="text-2xl font-bold max-w-sm">Go ahead <br />and create your account</h2>
+      <p className="text-sm">Sign up to get started and expand your vocabulary.</p>
+      </div>
+      <div className="max-w-md mx-auto   ">
+
+    
 
       {error && (
         <div
@@ -104,6 +112,7 @@ export default function Signup() {
         />
       )}
       {showOverlay && <Overlay message={message} />}
+        </div>
     </div>
   );
 }
@@ -115,42 +124,58 @@ const SignFields = ({
   loading,
   error,
 }) => {
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const inputStyle = "border-b border-gray-300 text-sm p-2 mb-2 w-full outline-none focus:border-accent group ";
+  const labelStyle = "block  text-sm  text-accent group-hover:border";
   return (
     <>
+     <label className={labelStyle} htmlFor="email">Email</label>
       <input
         type="email"
-        placeholder="Email"
-        className="border p-2 mb-2 w-full"
+        placeholder="example@example.com"
+        className={inputStyle}
         value={setCredentials.email}
         onChange={(e) => {
           setCredentials.setEmail(e.target.value);
           setError(false);
         }}
       />
-      <input
-        type="password"
-        placeholder="Password"
-        className="border p-2 mb-2 w-full"
-        value={setCredentials.password}
-        onChange={(e) => {
-          setCredentials.setPassword(e.target.value);
-          setError(false);
-        }}
-      />
+      
+      <div className="relative">
+        <label htmlFor="password" className={labelStyle}>Password</label>
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="strong password"
+          className={inputStyle}
+          value={setCredentials.password}
+        />
+        <button
+          type="button"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? <EyeSlashIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
+        </button>
+      </div>
+      
+      <label htmlFor="username" className={labelStyle}>Username</label>
       <input
         type="text"
-        placeholder="Username"
-        className="border p-2 mb-2 w-full"
+        placeholder="e.g., john_doe"
+        className={inputStyle}
         value={setCredentials.username}
         onChange={(e) => {
           setCredentials.setUsername(e.target.value);
           setError(false);
         }}
       />
+      <label htmlFor="full_name" className={labelStyle}>Full Name</label>
       <input
         type="text"
-        placeholder="Full Name"
-        className="border p-2 mb-2 w-full"
+        placeholder="e.g., John Doe"
+        className={inputStyle}
         value={setCredentials.full_name}
         onChange={(e) => {
           setCredentials.setFull_name(e.target.value);
@@ -158,7 +183,7 @@ const SignFields = ({
         }}
       />
       <button
-        className={`bg-blue-500 text-white py-2 px-4 w-full ${
+        className={`bg-blue-500 text-white py-2 px-4 mt-4 w-full ${
           error || loading ? "opacity-50 cursor-not-allowed" : ""
         }`}
         disabled={error || loading}
@@ -180,3 +205,4 @@ const Overlay = () => {
     </div>
   );
 };
+

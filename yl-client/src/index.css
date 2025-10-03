@@ -1,7 +1,7 @@
 @import './App.css';
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,6 +17,11 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
 }
+.heroSearchBar{
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0));
+  
+}
+
 
 
 @media screen and (max-width: 786px) {

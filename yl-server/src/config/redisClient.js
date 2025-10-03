@@ -18,7 +18,7 @@ export async function initRedis() {
   redisClient.on("connect", () => console.log("✅ Redis connected"));
   redisClient.on("error", (err) => console.error("❌ Redis Error:", err));
   redisClient.on("end", () => console.warn("⚠️ Redis disconnected"));
-
+ 
   // Connect in background, don't block server start
   redisClient.connect().catch((err) => {
     console.error("Redis initial connect failed:", err.message);
@@ -31,5 +31,6 @@ export function getRedis() {
   if (!redisClient) {
     throw new Error("Redis not initialized. Call initRedis() first.");
   }
+
   return redisClient;
 }

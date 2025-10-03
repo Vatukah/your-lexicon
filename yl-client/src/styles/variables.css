@@ -41,6 +41,7 @@
 :root{
     /* --- component --- */
     --navbar-height: 64px;
+    --searchBar-stick-height: calc( var(--navbar-height) + 16px);
 
     /* --- Page level spacing --- */
   --space-page-padding: 2rem;       /* Outer padding for full page */

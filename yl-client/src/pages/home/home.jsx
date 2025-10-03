@@ -14,20 +14,23 @@ const CHANNELS = [
 export default function Home() {
   const {channel,setChannel,messages} = useAuth();
     
+  
+  const handleHomeSearch = (event,navigate) => {
+    event.preventDefault(); // Prevent default form submission
+    let query = event.target.value; // Get the search query
+    query = query.trim();
+    if (query === "") {
+      return;
+    }
+    navigate(`/search/${query}`); // Navigate to the search page with the query
+  };
   return (
     <div className="home w-full  text-text">
 
       <HeroSection />
-      <div className="bg-white sticky top-[var(--navbar-height)] flex p-2 box-border flex-grow h-16 rounded-2xl z-50">
- <input
-          type="text"
-          placeholder="Search..."
-          className="  px-4  flex-grow  outline-none text-lg "
-        />
-        <button className="bg-accent text-white py-2 px-4 rounded-xl"> Search</button>
-       </div>
+      <HeroSearchBar onSearch={handleHomeSearch}/>
       
-      <div>
+      <div className="h-screen">
         <h2 className="font-bold text-2xl text-text my-[var(--space-md)]" >Search. Learn. Expand.</h2>
         <p className="text-text-muted">“Discover meanings, explore word origins, and grow your vocabulary. Start your lexicon journey with just one search.”</p>
       </div>
